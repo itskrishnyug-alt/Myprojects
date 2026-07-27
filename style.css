@@ -1,0 +1,188 @@
+/* CSS Variables for Light/Dark Mode (OLED optimized) */
+:root {
+    --bg-color: #f8f9fa;
+    --text-color: #202124;
+    --card-bg: #ffffff;
+    --border-color: #dadce0;
+    --primary-color: #1a73e8;
+    --secondary-color: #e8f0fe;
+    --btn-text: #1a73e8;
+}
+
+body.dark-mode {
+    --bg-color: #000000; /* Pure black for OLED */
+    --text-color: #e8eaed;
+    --card-bg: #121212;
+    --border-color: #3c4043;
+    --primary-color: #8ab4f8;
+    --secondary-color: #3c4043;
+    --btn-text: #8ab4f8;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+    line-height: 1.6;
+    padding-bottom: 24px; /* Mobile safe area */
+}
+
+/* Header */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    background-color: var(--bg-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.app-header h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+/* Touch-friendly buttons (min 44px) */
+button {
+    min-height: 44px;
+    min-width: 44px;
+    border: none;
+    border-radius: 24px;
+    background-color: var(--secondary-color);
+    color: var(--btn-text);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.1s, background-color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+#dark-mode-toggle {
+    padding: 8px;
+    border-radius: 50%;
+    background-color: transparent;
+    font-size: 1.5rem;
+}
+
+/* Dashboard Layout (CSS Grid) */
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column for mobile */
+    gap: 16px;
+    padding: 16px;
+    max-width: 600px; /* Constrain on larger screens, though tailored for mobile */
+    margin: 0 auto;
+}
+
+/* Cards */
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+body.dark-mode .card {
+    box-shadow: none; /* No shadow in pure black OLED */
+}
+
+.card h2 {
+    font-size: 1.25rem;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+/* Device Specs */
+.spec-list {
+    list-style: none;
+}
+
+.spec-list li {
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    display: flex;
+    justify-content: space-between;
+}
+.spec-list li strong {
+    font-weight: 500;
+}
+
+/* Camera Grid */
+.camera-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.cam-btn {
+    width: 100%;
+}
+
+/* Battery Stats */
+.battery-stats p {
+    margin-top: 8px;
+    font-size: 0.95rem;
+}
+
+.battery-level {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+.level-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.battery-bar {
+    flex-grow: 1;
+    height: 12px;
+    background-color: var(--border-color);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.battery-fill {
+    height: 100%;
+    background-color: #34a853; /* Green for healthy */
+    border-radius: 6px;
+}
+
+body.dark-mode .battery-fill {
+    background-color: #81c995;
+}
+
+/* AI Shortcuts */
+.ai-shortcuts {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ai-btn {
+    width: 100%;
+    justify-content: flex-start;
+    padding-left: 20px;
+}

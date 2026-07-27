@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Pixel 10 Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="app-header">
+        <h1>Pixel 10 Hub</h1>
+        <button id="dark-mode-toggle" aria-label="Toggle Dark Mode">
+            <span class="icon">🌓</span>
+        </button>
+    </header>
+
+    <main class="dashboard">
+        <!-- Device Specs Section -->
+        <section id="device-specs" class="card">
+            <h2>Device Specs</h2>
+            <ul class="spec-list">
+                <li><strong>Processor:</strong> Google Tensor G5</li>
+                <li><strong>Display:</strong> 6.3" Super Actua OLED (1-120Hz)</li>
+                <li><strong>RAM:</strong> 12GB LPDDR5X</li>
+                <li><strong>Storage:</strong> 256GB UFS 4.0</li>
+            </ul>
+        </section>
+
+        <!-- Camera Modes Section -->
+        <section id="camera-modes" class="card">
+            <h2>Camera Modes</h2>
+            <div class="camera-grid">
+                <button class="cam-btn">Night Sight</button>
+                <button class="cam-btn">Portrait</button>
+                <button class="cam-btn">Astrophotography</button>
+                <button class="cam-btn">Action Pan</button>
+            </div>
+        </section>
+
+        <!-- Battery Health Section -->
+        <section id="battery-health" class="card">
+            <h2>Battery Health</h2>
+            <div class="battery-stats">
+                <div class="battery-level">
+                    <span class="level-text">85%</span>
+                    <div class="battery-bar"><div class="battery-fill" style="width: 85%;"></div></div>
+                </div>
+                <p>Status: <strong>Healthy</strong></p>
+                <p>Est. Time Remaining: 14h 20m</p>
+            </div>
+        </section>
+
+        <!-- AI Assistant Section -->
+        <section id="ai-assistant" class="card">
+            <h2>AI Assistant</h2>
+            <div class="ai-shortcuts">
+                <button class="ai-btn">Summarize Page</button>
+                <button class="ai-btn">Magic Compose</button>
+                <button class="ai-btn">Live Translate</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
