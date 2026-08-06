@@ -3,6 +3,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const darkModeToggle = document.getElementById('dark-mode-toggle');
     const body = document.body;
+    const iconSpan = darkModeToggle.querySelector('.icon');
 
     // Check for saved user preference in local storage
     const savedDarkMode = localStorage.getItem('darkMode');
@@ -39,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
      * @param {boolean} isDark - True if dark mode is active
      */
     function updateToggleIcon(isDark) {
-        const iconSpan = darkModeToggle.querySelector('.icon');
         if (isDark) {
             iconSpan.textContent = '☀️'; // Sun icon for switching back to light mode
         } else {
