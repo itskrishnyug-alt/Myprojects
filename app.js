@@ -24,11 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const isDarkMode = body.classList.contains('dark-mode');
 
         // Update local storage
-        if (isDarkMode) {
-            localStorage.setItem('darkMode', 'enabled');
-        } else {
-            localStorage.setItem('darkMode', 'disabled');
-        }
+        localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
 
         // Update Icon
         updateToggleIcon(isDarkMode);
