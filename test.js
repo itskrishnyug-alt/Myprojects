@@ -19,6 +19,18 @@ if (!allPassed) {
     process.exit(1);
 }
 
+// Helper function to check content
+function checkItems(items, content, filename, itemType) {
+    items.forEach(item => {
+        if (!content.includes(item)) {
+            console.error(`❌ Missing ${itemType} in ${filename}: ${item}`);
+            allPassed = false;
+        } else {
+            console.log(`✅ Found ${itemType} in ${filename}: ${item}`);
+        }
+    });
+}
+
 // Basic content checks for index.html
 const indexHtmlContent = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');
 
@@ -32,14 +44,7 @@ const requiredHtmlElements = [
     'id="ai-assistant"'
 ];
 
-requiredHtmlElements.forEach(element => {
-    if (!indexHtmlContent.includes(element)) {
-        console.error(`❌ Missing element in index.html: ${element}`);
-        allPassed = false;
-    } else {
-        console.log(`✅ Found element in index.html: ${element}`);
-    }
-});
+checkItems(requiredHtmlElements, indexHtmlContent, 'index.html', 'element');
 
 // Basic content checks for style.css
 const styleCssContent = fs.readFileSync(path.join(__dirname, 'style.css'), 'utf8');
@@ -50,14 +55,7 @@ const requiredCssClasses = [
     'display: flex'
 ];
 
-requiredCssClasses.forEach(className => {
-    if (!styleCssContent.includes(className)) {
-        console.error(`❌ Missing class/property in style.css: ${className}`);
-        allPassed = false;
-    } else {
-        console.log(`✅ Found class/property in style.css: ${className}`);
-    }
-});
+checkItems(requiredCssClasses, styleCssContent, 'style.css', 'class/property');
 
 if (allPassed) {
     console.log('\n🎉 All tests passed successfully!');
